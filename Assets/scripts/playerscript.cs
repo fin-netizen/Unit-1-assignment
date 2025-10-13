@@ -25,12 +25,10 @@ public class playerscript : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            helper.DoFlipObject(true);
             xvel = -3;
         }
         if (Input.GetKey("d"))
         {
-            helper.DoFlipObject(false);
             xvel = 3;
         }
         if (Input.GetKey(KeyCode.Space) && isGrounded)
@@ -38,6 +36,30 @@ public class playerscript : MonoBehaviour
             yvel = 7;
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
+        if(!isFacingRight && xvel < 0f)
+        {
+            flip();
+        }
+        else if (isFacingRight && xvel > 0f)
+        {
+            flip();
+        }
+        if (xvel >= 0.1 || xvel <= -0.1)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
         
     }
 
@@ -63,7 +85,7 @@ public class playerscript : MonoBehaviour
 
 
     }
-    /*
+    
     private void flip()
     {
         isFacingRight = !isFacingRight;
@@ -71,5 +93,5 @@ public class playerscript : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-    */
+    
 }
