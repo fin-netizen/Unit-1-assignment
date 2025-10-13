@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class helperScript : MonoBehaviour
 {
+
+
+    public void DoFlipObject(bool flip)
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = flip;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,6 +17,9 @@ public class helperScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey("h"))
+        {
+            print("hello world");
+        }
     }
 }

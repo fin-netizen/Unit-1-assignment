@@ -9,10 +9,12 @@ public class playerscript : MonoBehaviour
     public bool isFacingRight;
     public Animator anim;
     helperScript helper;
+    public int lives;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
+        lives = 3;
     }
 
     // Update is called once per frame
@@ -25,17 +27,40 @@ public class playerscript : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            xvel = -3;
+            /*
+            helper.DoFlipObject(true);
+            */
+            xvel = -4;
         }
         if (Input.GetKey("d"))
         {
-            xvel = 3;
+            /*
+            helper.DoFlipObject(false);
+            */
+            xvel = 4;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetBool("isRunning", true); 
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey("d") && isGrounded)
+        {
+            xvel = 7;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey("a") && isGrounded)
+        {
+            xvel = -7;
         }
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             yvel = 7;
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
+        
         if(!isFacingRight && xvel < 0f)
         {
             flip();
@@ -44,6 +69,7 @@ public class playerscript : MonoBehaviour
         {
             flip();
         }
+        
         if (xvel >= 0.1 || xvel <= -0.1)
         {
             anim.SetBool("isWalking", true);
