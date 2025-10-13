@@ -14,6 +14,7 @@ public class playerscript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
+        helper = gameObject.AddComponent<helperScript>();
         lives = 3;
     }
 
@@ -27,16 +28,16 @@ public class playerscript : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
-            /*
+            
             helper.DoFlipObject(true);
-            */
+            
             xvel = -4;
         }
         if (Input.GetKey("d"))
         {
-            /*
+            
             helper.DoFlipObject(false);
-            */
+            
             xvel = 4;
         }
         if (Input.GetKey(KeyCode.LeftShift))
@@ -60,7 +61,7 @@ public class playerscript : MonoBehaviour
             yvel = 7;
         }
        
-        
+        /*
         if(!isFacingRight && xvel < 0f)
         {
             flip();
@@ -69,7 +70,7 @@ public class playerscript : MonoBehaviour
         {
             flip();
         }
-        
+        */
         if (xvel >= 0.1 || xvel <= -0.1)
         {
             anim.SetBool("isWalking", true);
