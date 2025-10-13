@@ -35,10 +35,13 @@ public class playerscript : MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            
             helper.DoFlipObject(false);
-            
             xvel = 4;
+        }
+        if (Input.GetKey(KeyCode.LeftAlt) && isGrounded)
+        {
+            xvel = 5;
+            yvel = 7;
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
