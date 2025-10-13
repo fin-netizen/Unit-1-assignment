@@ -6,13 +6,13 @@ public class playerscript : MonoBehaviour
     Rigidbody2D rb;
     public LayerMask groundLayer;
     bool isGrounded;
+    public bool isFacingRight;
+    public Animator anim;
+    helperScript helper;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
-
-
-
     }
 
     // Update is called once per frame
@@ -25,10 +25,12 @@ public class playerscript : MonoBehaviour
 
         if (Input.GetKey("a"))
         {
+            helper.DoFlipObject(true);
             xvel = -3;
         }
         if (Input.GetKey("d"))
         {
+            helper.DoFlipObject(false);
             xvel = 3;
         }
         if (Input.GetKey(KeyCode.Space) && isGrounded)
@@ -36,6 +38,7 @@ public class playerscript : MonoBehaviour
             yvel = 7;
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
+        
     }
 
     void IsGrounded()
@@ -60,4 +63,13 @@ public class playerscript : MonoBehaviour
 
 
     }
+    /*
+    private void flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
+    }
+    */
 }
