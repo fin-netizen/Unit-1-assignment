@@ -59,7 +59,7 @@ public class playerscript : MonoBehaviour
         {
             yvel = 7;
         }
-        rb.linearVelocity = new Vector3(xvel, yvel, 0);
+       
         
         if(!isFacingRight && xvel < 0f)
         {
@@ -86,7 +86,7 @@ public class playerscript : MonoBehaviour
         {
             anim.SetBool("isJumping", false);
         }
-        
+        rb.linearVelocity = new Vector3(xvel, yvel, 0);
     }
 
     void IsGrounded()
