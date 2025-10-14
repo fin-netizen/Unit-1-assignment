@@ -38,9 +38,15 @@ public class playerscript : MonoBehaviour
             helper.DoFlipObject(false);
             xvel = 4;
         }
+        // I've added a leap
         if (Input.GetKey(KeyCode.LeftAlt) && isGrounded)
         {
             xvel = 5;
+            yvel = 7;
+        }
+        if (Input.GetKey(KeyCode.RightShift) && isGrounded)
+        {
+            xvel = -5;
             yvel = 7;
         }
         if (Input.GetKey(KeyCode.LeftShift))
