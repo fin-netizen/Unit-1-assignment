@@ -10,6 +10,7 @@ public class playerscript : MonoBehaviour
     public Animator anim;
     helperScript helper;
     public int lives;
+    public GameObject weapon;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +23,7 @@ public class playerscript : MonoBehaviour
     void Update()
     {
         IsGrounded();
+        spear();
         float xvel, yvel;
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
@@ -97,7 +99,20 @@ public class playerscript : MonoBehaviour
             anim.SetBool("isJumping", false);
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
+        int moveDirection = 2;
+        if (Input.GetKeyDown("y"))
+        {
+            GameObject clone;
+            clone = Instantiate(weapon, transform.position, transform.rotation);
+
+            Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+
+            rb.linearVelocity = transform.forward * 15;
+
+            rb.transform.position = new Vector3(transform.position.x + 2, transform.position.y + 1, transform.position.z + 1);
+        }
     }
+
 
     void IsGrounded()
     {
@@ -128,6 +143,10 @@ public class playerscript : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+    void spear()
+    {
+
     }
     
 }
