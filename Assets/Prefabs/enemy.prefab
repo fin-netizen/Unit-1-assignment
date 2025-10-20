@@ -197,7 +197,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  player:
+  spear:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   playerscript: {fileID: 0}

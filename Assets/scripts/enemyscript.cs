@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class enemyscript : MonoBehaviour
@@ -7,7 +8,7 @@ public class enemyscript : MonoBehaviour
     public bool isFacingRight;
     bool isGrounded;
     public LayerMask groundLayer;
-    public LayerMask player;
+    public LayerMask spear;
     float xvel, yvel;
     public playerscript playerscript;
     float timer;
@@ -40,6 +41,11 @@ public class enemyscript : MonoBehaviour
                 xvel = -xvel;
             }
         }
+        if (spearcheck(0, 2) == true)
+        {
+            Destroy(gameObject); 
+        }
+
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
         if (!isFacingRight && xvel < 0f)
         {
@@ -84,16 +90,7 @@ public class enemyscript : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        print("tag=" + collision.gameObject.tag);
-        if (collision.gameObject.tag == "player")
-        {
-            print("i've been hit by a spear");
-            anim.SetBool("isdieing", true); 
-            Destroy(gameObject);
-        }
-    }
+    
 
     public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
     {
@@ -106,6 +103,32 @@ public class enemyscript : MonoBehaviour
 
 
         hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, rayLength, groundLayer);
+
+        Color hitColor = Color.white;
+
+
+        if (hit.collider != null)
+        {
+
+            hitColor = Color.green;
+            hitSomething = true;
+        }
+        Debug.DrawRay(transform.position + offset, -Vector3.up * rayLength, hitColor);
+
+        return hitSomething;
+
+    }
+    public bool spearcheck(float xoffs, float yoffs)
+    {
+        float rayLength = 1.5f;
+        bool hitSomething = false;
+
+        Vector3 offset = new Vector3(xoffs, yoffs, 0);
+
+        RaycastHit2D hit;
+
+
+        hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, rayLength, spear);
 
         Color hitColor = Color.white;
 
