@@ -11,6 +11,7 @@ public class playerscript : MonoBehaviour
     helperScript helper;
     public int lives;
     public GameObject weapon;
+    public int movedirection;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
