@@ -17,9 +17,9 @@ public class helperScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("h"))
+        if (Input.GetKeyDown("h"))
         {
-            print("hello world");
+            print("attack");
         }
     }
 }

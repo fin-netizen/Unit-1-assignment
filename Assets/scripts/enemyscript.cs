@@ -18,7 +18,7 @@ public class enemyscript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         xvel = -1.5f;
         yvel = 0f;
-        print("Enemy says: the player has " + playerscript.lives + " lives");
+       
     }
 
     // Update is called once per frame
