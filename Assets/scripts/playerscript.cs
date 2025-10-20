@@ -100,18 +100,34 @@ public class playerscript : MonoBehaviour
             anim.SetBool("isJumping", false);
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
-        int moveDirection = 2;
+        
         if (Input.GetKeyDown("y"))
         {
-            GameObject clone;
-            clone = Instantiate(weapon, transform.position, transform.rotation);
+            if(xvel > 0)
+            { 
+                GameObject clone;
+                clone = Instantiate(weapon, transform.position, transform.rotation);
 
-            Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+                Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
 
-            rb.linearVelocity = transform.forward * 15;
+                rb.linearVelocity = new Vector2(12, 0); 
 
-            rb.transform.position = new Vector3(transform.position.x + 2, transform.position.y + 1, transform.position.z + 1);
+                rb.transform.position = new Vector3(transform.position.x + 2, transform.position.y + 1, transform.position.z + 1);
+            }
+
+            if (xvel < 0)
+            {
+                GameObject clone;
+                clone = Instantiate(weapon, transform.position, transform.rotation);
+
+                Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
+
+                rb.linearVelocity = new Vector2(-12, 0);
+
+                rb.transform.position = new Vector3(transform.position.x - 2, transform.position.y + 1, transform.position.z + 1);
+            }
         }
+
     }
 
 
