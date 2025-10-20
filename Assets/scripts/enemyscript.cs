@@ -7,6 +7,7 @@ public class enemyscript : MonoBehaviour
     public bool isFacingRight;
     bool isGrounded;
     public LayerMask groundLayer;
+    public LayerMask player;
     float xvel, yvel;
     public playerscript playerscript;
     float timer;
@@ -84,7 +85,12 @@ public class enemyscript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("enemy says: get off me");
+        print("tag=" + collision.gameObject.tag);
+        if (collision.gameObject.tag == "player")
+        {
+            print("i've been hit by a spear");
+            Destroy(gameObject);
+        }
     }
 
     public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)

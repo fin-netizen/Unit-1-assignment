@@ -27,6 +27,8 @@ public class spear : MonoBehaviour
         if (collision.gameObject.tag == "spear")
         {
             print("i've been hit by a spear");
+            Destroy(gameObject); 
         }
     }
+
 }
