@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7234775362391318737}
   - component: {fileID: 1665903136414905546}
   - component: {fileID: 8609541161532988803}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

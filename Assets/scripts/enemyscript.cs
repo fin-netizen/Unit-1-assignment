@@ -58,6 +58,7 @@ public class enemyscript : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
+
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
         if (!isFacingRight && xvel < 0f)
         {
@@ -89,6 +90,7 @@ public class enemyscript : MonoBehaviour
         if (collision.gameObject.tag == "player")
         {
             print("i've been hit by a spear");
+            anim.SetBool("isdieing", true); 
             Destroy(gameObject);
         }
     }
