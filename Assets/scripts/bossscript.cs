@@ -1,7 +1,7 @@
-using JetBrains.Annotations;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class enemyscript : MonoBehaviour
+public class bossscript : MonoBehaviour
 {
     public Animator anim;
     Rigidbody2D rb;
@@ -18,19 +18,24 @@ public class enemyscript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         xvel = -1.5f;
         yvel = 0f;
-       
+        print("excalibur says: guards get him!");
     }
 
     // Update is called once per frame
     void Update()
     {
-        yvel = rb.linearVelocity.y;
+        yvel = rb.linearVelocity.y; 
         if (xvel < 0)
         {
-            if (ExtendedRayCollisionCheck(-1, 0) == false)
+            if (ExtendedRayCollisionCheck(-1,0) == false)
             {
                 flip();
-                xvel = -xvel;
+                xvel = -xvel; 
+            }
+            if (spearcheck(3, 2) == true)
+            {
+                Destroy(gameObject);
+                print("excalibur says: no,no,no,noooooo");
             }
         }
         if (xvel > 0)
@@ -40,14 +45,12 @@ public class enemyscript : MonoBehaviour
                 flip();
                 xvel = -xvel;
             }
+            if (spearcheck(-3, 2) == true)
+            {
+                Destroy(gameObject);
+                print("excalibur says: nooooooo");
+            }
         }
-        if (spearcheck(0, 2) == true)
-        {
-            Destroy(gameObject);
-            print("excalibur says: idiots, just attack him");
-        }
-
-   
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
         if (!isFacingRight && xvel < 0f)
         {
@@ -73,8 +76,6 @@ public class enemyscript : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-    
-
     public bool ExtendedRayCollisionCheck(float xoffs, float yoffs)
     {
         float rayLength = 0.5f;
@@ -100,7 +101,11 @@ public class enemyscript : MonoBehaviour
 
         return hitSomething;
 
+
+
+
     }
+
     public bool spearcheck(float xoffs, float yoffs)
     {
         float rayLength = 1.5f;
@@ -127,4 +132,8 @@ public class enemyscript : MonoBehaviour
         return hitSomething;
 
     }
+
+
+
+
 }

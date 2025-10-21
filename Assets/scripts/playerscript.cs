@@ -12,6 +12,8 @@ public class playerscript : MonoBehaviour
     public int lives;
     public GameObject weapon;
     public int movedirection;
+    public LayerMask enemy;
+    public LayerMask excalibur;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -127,6 +129,73 @@ public class playerscript : MonoBehaviour
                 rb.transform.position = new Vector3(transform.position.x - 2, transform.position.y + 1, transform.position.z + 1);
             }
         }
+
+        if (enemycheck(1, 2) == true)
+        {
+            Destroy(gameObject);
+            print("excalibur says: finally");
+        }
+        if (enemycheck(-1, 2) == true)
+        {
+            Destroy(gameObject);
+            print("excalibur says: finally");
+        }
+        if (excaliburcheck(1, 2) == true)
+        {
+            Destroy(gameObject);
+            print("excalibur says: that was eaiser than i thought");
+        }
+
+    }
+    public bool enemycheck(float xoffs, float yoffs)
+    {
+        float rayLength = 1.5f;
+        bool hitSomething = false;
+
+        Vector3 offset = new Vector3(xoffs, yoffs, 0);
+
+        RaycastHit2D hit;
+
+
+        hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, rayLength, enemy);
+
+        Color hitColor = Color.white;
+
+
+        if (hit.collider != null)
+        {
+
+            hitColor = Color.green;
+            hitSomething = true;
+        }
+        Debug.DrawRay(transform.position + offset, -Vector3.up * rayLength, hitColor);
+
+        return hitSomething;
+    }
+    public bool excaliburcheck(float xoffs, float yoffs)
+    {
+        float rayLength = 1.5f;
+        bool hitSomething = false;
+
+        Vector3 offset = new Vector3(xoffs, yoffs, 0);
+
+        RaycastHit2D hit;
+
+
+        hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, rayLength, excalibur);
+
+        Color hitColor = Color.white;
+
+
+        if (hit.collider != null)
+        {
+
+            hitColor = Color.green;
+            hitSomething = true;
+        }
+        Debug.DrawRay(transform.position + offset, -Vector3.up * rayLength, hitColor);
+
+        return hitSomething;
 
     }
 
