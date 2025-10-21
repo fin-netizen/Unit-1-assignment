@@ -22,7 +22,7 @@ public class secretRoute : MonoBehaviour
     {
         Destroy(gameObject);
         print("??? says: YOU COWERDICE WRETCH");
-        dialogue.text = "??? says: YOU COWERDICE WRETCH";
+        dialogue.text = "???: YOU COWERDICE WRETCH";
 
     }
 }
