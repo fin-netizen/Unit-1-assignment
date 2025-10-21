@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class playerscript : MonoBehaviour
@@ -14,6 +15,7 @@ public class playerscript : MonoBehaviour
     public int movedirection;
     public LayerMask enemy;
     public LayerMask excalibur;
+    public TextMeshProUGUI dialogue;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -134,16 +136,19 @@ public class playerscript : MonoBehaviour
         {
             Destroy(gameObject);
             print("excalibur says: finally");
+            dialogue.text = ("excalibur: finally");
         }
         if (enemycheck(-1, 2) == true)
         {
             Destroy(gameObject);
             print("excalibur says: finally");
+            dialogue.text = ("excalibur: finally");
         }
         if (excaliburcheck(1, 2) == true)
         {
             Destroy(gameObject);
             print("excalibur says: that was eaiser than i thought");
+            dialogue.text = ("excalibur: that was eaiser than i thought");
         }
 
     }

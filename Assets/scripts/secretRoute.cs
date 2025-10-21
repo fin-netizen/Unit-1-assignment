@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class secretRoute : MonoBehaviour
 {
+
+    public TextMeshProUGUI dialogue;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,5 +22,7 @@ public class secretRoute : MonoBehaviour
     {
         Destroy(gameObject);
         print("??? says: YOU COWERDICE WRETCH");
+        dialogue.text = "??? says: YOU COWERDICE WRETCH";
+
     }
 }

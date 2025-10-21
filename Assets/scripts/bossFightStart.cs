@@ -1,7 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class bossFightStart : MonoBehaviour
 {
+    public TextMeshProUGUI dialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +19,7 @@ public class bossFightStart : MonoBehaviour
     {
         Destroy(gameObject);
         print("excalibur says: fine, i'll deal with him myself");
+        dialogue.text = ("excalibur: fine, i'll deal with him myself");
     }
 
 }

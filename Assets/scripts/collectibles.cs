@@ -1,7 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class collectibles : MonoBehaviour
 {
+    public TextMeshProUGUI dialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,5 +19,6 @@ public class collectibles : MonoBehaviour
     {
         Destroy(gameObject);
         print("excalibur says: no stop him you fools, he's taking my gold");
+        dialogue.text = (" excalibur: no stop him you fools, he's taking my gold");
     }
 }

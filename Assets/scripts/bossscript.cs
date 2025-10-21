@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class bossscript : MonoBehaviour
     float xvel, yvel;
     public playerscript playerscript;
     float timer;
+    public TextMeshProUGUI dialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +21,7 @@ public class bossscript : MonoBehaviour
         xvel = -1.5f;
         yvel = 0f;
         print("excalibur says: guards get him!");
+        dialogue.text = ("excalibur: guards get him!");
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class bossscript : MonoBehaviour
             {
                 Destroy(gameObject);
                 print("excalibur says: my lord, forgive me");
+                dialogue.text = ("excalibur: my lord, forgive me");
             }
         }
         if (xvel > 0)
@@ -49,6 +53,7 @@ public class bossscript : MonoBehaviour
             {
                 Destroy(gameObject);
                 print("excalibur says: my lord, forgive me");
+                dialogue.text = ("excalibur: my lord, forgive me");
             }
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);

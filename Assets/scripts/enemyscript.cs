@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 
 public class enemyscript : MonoBehaviour
@@ -12,6 +13,7 @@ public class enemyscript : MonoBehaviour
     float xvel, yvel;
     public playerscript playerscript;
     float timer;
+    public TextMeshProUGUI dialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,6 +47,7 @@ public class enemyscript : MonoBehaviour
         {
             Destroy(gameObject);
             print("excalibur says: idiots, just attack him");
+            dialogue.text = ("excalibur: idiots, just attack him");
         }
 
    
