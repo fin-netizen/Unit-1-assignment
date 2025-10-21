@@ -35,7 +35,7 @@ public class bossscript : MonoBehaviour
             if (spearcheck(3, 2) == true)
             {
                 Destroy(gameObject);
-                print("excalibur says: no,no,no,noooooo");
+                print("excalibur says: my lord, forgive me");
             }
         }
         if (xvel > 0)
@@ -48,7 +48,7 @@ public class bossscript : MonoBehaviour
             if (spearcheck(-3, 2) == true)
             {
                 Destroy(gameObject);
-                print("excalibur says: nooooooo");
+                print("excalibur says: my lord, forgive me");
             }
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
