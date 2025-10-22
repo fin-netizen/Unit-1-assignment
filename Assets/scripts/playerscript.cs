@@ -110,25 +110,29 @@ public class playerscript : MonoBehaviour
             if(xvel > 0)
             { 
                 GameObject clone;
-                clone = Instantiate(weapon, transform.position, transform.rotation);
+                clone = Instantiate(weapon, transform.position, Quaternion.identity);
 
                 Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
 
                 rb.linearVelocity = new Vector2(12, 0); 
 
                 rb.transform.position = new Vector3(transform.position.x + 2, transform.position.y + 1, transform.position.z + 1);
+
+                rb.transform.Rotate(new Vector3(0, 0, 315)); 
             }
 
             if (xvel < 0)
             {
                 GameObject clone;
-                clone = Instantiate(weapon, transform.position, transform.rotation);
+                clone = Instantiate(weapon, transform.position, Quaternion.identity);
 
                 Rigidbody2D rb = clone.GetComponent<Rigidbody2D>();
 
                 rb.linearVelocity = new Vector2(-12, 0);
 
                 rb.transform.position = new Vector3(transform.position.x - 2, transform.position.y + 1, transform.position.z + 1);
+
+                rb.transform.Rotate(new Vector3(0, 0, 135));
             }
         }
 
