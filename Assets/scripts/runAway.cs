@@ -11,7 +11,7 @@ public class runAway : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        xvel = 7f;
+        xvel = 9f;
         yvel = 0f;
         timer = 1;
     }

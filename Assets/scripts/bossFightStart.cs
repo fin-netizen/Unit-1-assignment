@@ -19,7 +19,7 @@ public class bossFightStart : MonoBehaviour
     {
         Destroy(gameObject);
         print("excalibur says: fine, i'll deal with him myself");
-        dialogue.text = ("excalibur: useless zombies, fine, i'll deal with him myself");
+        dialogue.text = ("excalibur: useless zombies. fine, i'll deal with him myself");
     }
 
 }
