@@ -21,7 +21,7 @@ public class bossscript : MonoBehaviour
         xvel = -1.5f;
         yvel = 0f;
         print("excalibur says: guards get him!");
-        dialogue.text = ("excalibur: guards get him!");
+        dialogue.text = ("excalibur: Not you again, guards get him!");
     }
 
     // Update is called once per frame

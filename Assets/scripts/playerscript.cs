@@ -56,19 +56,11 @@ public class playerscript : MonoBehaviour
             xvel = -5;
             yvel = 7;
         }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            anim.SetBool("isRunning", true); 
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey("d") && isGrounded)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("d") && isGrounded)
         {
             xvel = 7;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey("a") && isGrounded)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("a") && isGrounded)
         {
             xvel = -7;
         }
@@ -76,7 +68,15 @@ public class playerscript : MonoBehaviour
         {
             yvel = 7;
         }
-       
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+
         /*
         if(!isFacingRight && xvel < 0f)
         {

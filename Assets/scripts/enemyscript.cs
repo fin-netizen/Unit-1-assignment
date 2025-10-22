@@ -46,8 +46,8 @@ public class enemyscript : MonoBehaviour
         if (spearcheck(0, 2) == true)
         {
             Destroy(gameObject);
-            print("excalibur says: idiots, just attack him");
-            dialogue.text = ("excalibur: idiots, just attack him");
+            print("excalibur says: idiots, just kill him already");
+            dialogue.text = ("excalibur: idiots, just kill him already");
         }
 
    

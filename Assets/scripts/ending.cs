@@ -21,8 +21,8 @@ public class secretRoute : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        print("??? says: YOU COWERDICE WRETCH");
-        dialogue.text = "???: YOU COWERDICE WRETCH";
+        print("??? says: SO EXCALIBUR FAILED? NO MATTER");
+        dialogue.text = "???: SO EXCALIBUR FAILED? NO MATTER";
 
     }
 }
