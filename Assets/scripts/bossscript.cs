@@ -11,7 +11,6 @@ public class bossscript : MonoBehaviour
     public LayerMask spear;
     float xvel, yvel;
     public playerscript playerscript;
-    float timer;
     public TextMeshProUGUI dialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +18,6 @@ public class bossscript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         xvel = -1.5f;
         yvel = 0f;
-        
     }
 
     // Update is called once per frame
@@ -35,7 +33,7 @@ public class bossscript : MonoBehaviour
             }
             if (spearcheck(3, 2) == true)
             {
-                Destroy(gameObject);
+                    Destroy(gameObject);
                 print("excalibur says: my lord, forgive me");
                 dialogue.text = ("excalibur: my lord, forgive me");
             }

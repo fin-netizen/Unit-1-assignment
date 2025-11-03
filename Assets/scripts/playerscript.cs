@@ -16,6 +16,9 @@ public class playerscript : MonoBehaviour
     public LayerMask enemy;
     public LayerMask excalibur;
     public TextMeshProUGUI dialogue;
+
+
+    public Transform respawnPoint;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -138,21 +141,31 @@ public class playerscript : MonoBehaviour
 
         if (enemycheck(1, 2) == true)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             print("excalibur says: finally");
             dialogue.text = ("excalibur: finally");
+            anim.SetBool("isDieing", true);
+           // RespawnPlayer();
+
         }
         if (enemycheck(-1, 2) == true)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             print("excalibur says: finally");
             dialogue.text = ("excalibur: finally");
+            anim.SetBool("isDieing", true);
+           // RespawnPlayer();
+
+
         }
         if (excaliburcheck(1, 2) == true)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             print("excalibur says: that was eaiser than i thought");
             dialogue.text = ("excalibur: that was eaiser than i thought");
+            anim.SetBool("isDieing", true);
+
+            //RespawnPlayer();
         }
 
     }
@@ -241,6 +254,13 @@ public class playerscript : MonoBehaviour
     }
     void spear()
     {
+
+    }
+
+    void RespawnPlayer()
+    {
+        transform.position = respawnPoint.position;
+        anim.SetBool("isDieing", false);
 
     }
     

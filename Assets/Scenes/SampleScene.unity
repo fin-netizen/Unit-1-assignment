@@ -784,6 +784,37 @@ Transform:
   - {fileID: 1618176175}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &481169594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481169595}
+  m_Layer: 0
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481169595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481169594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.69, y: 3.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +946,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 3.6, z: -10}
+  m_LocalPosition: {x: -2.6000004, y: 3.5999994, z: -10}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4435,7 +4466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548283255}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.39, y: 3.7, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4470,6 +4501,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   dialogue: {fileID: 1777634795}
+  respawnPoint: {fileID: 481169595}
 --- !u!95 &548283261
 Animator:
   serializedVersion: 7
@@ -10006,7 +10038,6 @@ GameObject:
   - component: {fileID: 1777634794}
   - component: {fileID: 1777634796}
   - component: {fileID: 1777634795}
-  - component: {fileID: 1777634797}
   m_Layer: 5
   m_Name: Dialogue Text
   m_TagString: Untagged
@@ -10132,19 +10163,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777634793}
   m_CullTransparentMesh: 1
---- !u!114 &1777634797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777634793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ed3f31f3a545b4b83530a1d45367f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::dialouge
-  dialogue: {fileID: 0}
 --- !u!1001 &1779734065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10696,3 +10714,4 @@ SceneRoots:
   - {fileID: 1573580354}
   - {fileID: 964592724}
   - {fileID: 1979810838}
+  - {fileID: 481169595}
