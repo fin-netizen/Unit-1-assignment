@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
@@ -7,6 +8,7 @@ public class runAway : MonoBehaviour
     Rigidbody2D rb;
     float timer;
     float xvel, yvel;
+    public TextMeshProUGUI dialogue;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +16,8 @@ public class runAway : MonoBehaviour
         xvel = 9f;
         yvel = 0f;
         timer = 1;
+        print("excalibur says: guards get him!");
+        dialogue.text = ("excalibur: Not you again, guards stall him!");
     }
 
     // Update is called once per frame

@@ -105,7 +105,7 @@ public class playerscript : MonoBehaviour
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
         
-        if (Input.GetKeyDown("y"))
+        if (Input.GetKeyDown("y") && isGrounded)
         {
             if(xvel > 0)
             { 
