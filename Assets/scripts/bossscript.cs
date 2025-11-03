@@ -19,8 +19,7 @@ public class bossscript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         xvel = -1.5f;
         yvel = 0f;
-        print("excalibur says: guards get him!");
-        dialogue.text = ("excalibur: Not you again, guards stall him!");
+        
     }
 
     // Update is called once per frame

@@ -10006,6 +10006,7 @@ GameObject:
   - component: {fileID: 1777634794}
   - component: {fileID: 1777634796}
   - component: {fileID: 1777634795}
+  - component: {fileID: 1777634797}
   m_Layer: 5
   m_Name: Dialogue Text
   m_TagString: Untagged
@@ -10131,6 +10132,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777634793}
   m_CullTransparentMesh: 1
+--- !u!114 &1777634797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777634793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ed3f31f3a545b4b83530a1d45367f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::dialouge
+  dialogue: {fileID: 0}
 --- !u!1001 &1779734065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10299,6 +10313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::runAway
   anim: {fileID: 0}
+  dialogue: {fileID: 1777634795}
 --- !u!61 &1880341585
 BoxCollider2D:
   m_ObjectHideFlags: 0
