@@ -16,8 +16,6 @@ public class playerscript : MonoBehaviour
     public LayerMask enemy;
     public LayerMask excalibur;
     public TextMeshProUGUI dialogue;
-
-
     public Transform respawnPoint;
     void Start()
     {
