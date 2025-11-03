@@ -12,12 +12,14 @@ public class bossscript : MonoBehaviour
     float xvel, yvel;
     public playerscript playerscript;
     public TextMeshProUGUI dialogue;
+    public float timer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         xvel = -1.5f;
         yvel = 0f;
+        timer = 3;
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class bossscript : MonoBehaviour
             }
             if (spearcheck(3, 2) == true)
             {
-                    Destroy(gameObject);
+                xvel = 0;
                 print("excalibur says: my lord, forgive me");
                 dialogue.text = ("excalibur: my lord, forgive me");
             }
@@ -47,9 +49,18 @@ public class bossscript : MonoBehaviour
             }
             if (spearcheck(-3, 2) == true)
             {
-                Destroy(gameObject);
+                xvel = 0;
                 print("excalibur says: my lord, forgive me");
                 dialogue.text = ("excalibur: my lord, forgive me");
+            }
+        }
+        if (xvel == 0)
+        {
+            timer -= Time.deltaTime;
+            anim.SetBool("isdieing", true);
+            if(timer<= 0)
+            {
+                Destroy(gameObject); 
             }
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
