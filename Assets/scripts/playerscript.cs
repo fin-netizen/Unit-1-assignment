@@ -15,22 +15,30 @@ public class playerscript : MonoBehaviour
     public int movedirection;
     public LayerMask enemy;
     public LayerMask excalibur;
+    public LayerMask player;
     public TextMeshProUGUI dialogue;
     public Transform respawnPoint;
+
+    float xvel, yvel;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundLayer = LayerMask.GetMask("Ground");
         helper = gameObject.AddComponent<helperScript>();
         lives = 3;
+        xvel = yvel = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        
+
         IsGrounded();
         spear();
-        float xvel, yvel;
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
 
@@ -105,7 +113,10 @@ public class playerscript : MonoBehaviour
             anim.SetBool("isJumping", false);
         }
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
-        
+
+
+
+
         if (Input.GetKeyDown("y") && isGrounded)
         {
             if(xvel > 0)
@@ -165,7 +176,11 @@ public class playerscript : MonoBehaviour
 
             //RespawnPlayer();
         }
-
+        if (yvel <= -12)
+        {
+            anim.SetBool("isDieing", true);
+            RespawnPlayer();
+        }
     }
     public bool enemycheck(float xoffs, float yoffs)
     {
@@ -255,11 +270,15 @@ public class playerscript : MonoBehaviour
 
     }
 
+
     void RespawnPlayer()
     {
         transform.position = respawnPoint.position;
         anim.SetBool("isDieing", false);
+        yvel = 0;
+        rb.linearVelocity = new Vector2(0, 0);
+
 
     }
-    
+
 }
