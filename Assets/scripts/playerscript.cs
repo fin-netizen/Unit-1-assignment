@@ -18,7 +18,6 @@ public class playerscript : MonoBehaviour
     public LayerMask player;
     public TextMeshProUGUI dialogue;
     public Transform respawnPoint;
-
     float xvel, yvel;
 
 
